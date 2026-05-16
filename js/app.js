@@ -12,6 +12,10 @@ const App = {
 
     if (parts[0] === 'strategy') this.renderStrategy(main);
     else if (parts[0] === 'leadership') this.renderLeadership(main);
+    else if (parts[0] === 'evaluations') {
+      location.hash = '#/leadership';
+      return;
+    }
     else this.renderLanding(main);
 
     this.updateNav(parts[0] || 'home');
@@ -28,39 +32,52 @@ const App = {
   renderLanding(el) {
     const D = FRAMEWORK;
     el.innerHTML = `
-      <div class="page landing">
+      <div class="page landing portal-home">
         <div class="landing-header">
           <div class="landing-eyebrow">Defense Health Agency • Fort Leonard Wood</div>
           <h1 class="landing-title">DCCS Leadership & Counseling Portal</h1>
           <p class="landing-subtitle">LTC Matthew Holtkamp</p>
-          <div class="landing-mission" style="max-width:800px;margin:1.5rem auto 0;color:var(--text-secondary);line-height:1.6;font-size:1.1rem;">
+          <div class="landing-mission">
             Centralized hub for command philosophy, expectations, and counseling integration.
           </div>
         </div>
-        
-        <!-- Action Buttons for Counseling -->
-        <div style="display:flex;justify-content:center;gap:1.5rem;margin:2rem 0 3rem;flex-wrap:wrap;">
-          <a href="#" target="_blank" style="text-decoration:none;background:var(--army-green);color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;font-size:1.1rem;display:flex;align-items:center;gap:10px;box-shadow:0 4px 12px rgba(76,175,80,0.2);transition:transform 0.2s;">
-            <span>📝</span> Initial Counseling Form
-          </a>
-          <a href="#" target="_blank" style="text-decoration:none;background:var(--bg-glass);border:1px solid var(--border-accent);color:var(--gold);padding:12px 24px;border-radius:8px;font-weight:700;font-size:1.1rem;display:flex;align-items:center;gap:10px;transition:transform 0.2s;">
-            <span>📅</span> Quarterly Counseling Form
-          </a>
-        </div>
 
-        <div class="landing-paths" style="margin-top:0;">
-          <div class="path-card" onclick="location.hash='#/leadership'">
-            <div class="path-card-icon framework">⭐</div>
-            <h2 class="path-card-title">Leadership Philosophy<br>& Expectations</h2>
-            <p class="path-card-desc">Read my beliefs, expectations, and evaluation criteria. Review this prior to your initial counseling.</p>
-            <div class="path-card-arrow">→</div>
-          </div>
-          <div class="path-card" onclick="location.hash='#/strategy'">
-            <div class="path-card-icon strategy">🏛️</div>
-            <h2 class="path-card-title">Army Medicine<br>Strategic Plan</h2>
-            <p class="path-card-desc">Understand how the Army's five Lines of Effort cascade from OTSG to our installation. See how GLWCH executes the national strategy.</p>
-            <div class="path-card-arrow">→</div>
-          </div>
+        <div class="home-grid">
+          <section class="home-panel home-primary">
+            <div class="panel-kicker">Start Here</div>
+            <h2 class="panel-title">Use this portal in order.</h2>
+            <p class="panel-desc">Before scheduling counseling, review the strategic context, read and understand my leadership philosophy, then choose the right counseling path.</p>
+
+            <div class="workflow-list">
+              <div class="workflow-item">
+                <div class="workflow-number">1</div>
+                <div class="workflow-copy">
+                  <h3>Review Army Strategy</h3>
+                  <p>Understand the Army Medicine Lines of Effort and how they connect to GLWCH, DCCS priorities, and the MSCoE mission.</p>
+                  <a class="inline-link" href="#/strategy">Open Army Strategy →</a>
+                </div>
+              </div>
+              <div class="workflow-item">
+                <div class="workflow-number">2</div>
+                <div class="workflow-copy">
+                  <h3>Read the Leadership Philosophy</h3>
+                  <p>Read and understand the DCCS intent, leadership beliefs, expectations, communication rules, and evaluation guidance before we meet.</p>
+                  <a class="inline-link" href="#/leadership">Open leadership philosophy →</a>
+                </div>
+              </div>
+              <div class="workflow-item">
+                <div class="workflow-number">3</div>
+                <div class="workflow-copy">
+                  <h3>Schedule counseling</h3>
+                  <p>After you have reviewed the material, email SSG Flor Holloway or Ms. Tina Mackie in Global to schedule initial or quarterly counseling.</p>
+                  <div class="form-actions">
+                    <a href="#" target="_blank" class="form-action primary">Initial Counseling Form</a>
+                    <a href="#" target="_blank" class="form-action secondary">Quarterly Counseling Form</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
         
         <div class="landing-footer" style="margin-top:4rem;">
@@ -76,6 +93,11 @@ const App = {
           </div>
           <div style="margin-top:12px;font-size:0.75rem;color:var(--text-muted);">
             Motto: <span style="color:var(--gold);font-weight:600;">${D.motto}</span>
+          </div>
+          <div class="footer-reference-links" aria-label="Reference links">
+            <a href="#/strategy">Army Strategy</a>
+            <span>·</span>
+            <a href="#/leadership">Leadership Philosophy</a>
           </div>
         </div>
       </div>`;
@@ -226,116 +248,147 @@ const App = {
       <div class="page section-page">
         <button class="back-btn" onclick="location.hash='#/'">← Back to Home</button>
         <div class="section-header">
-          <div class="section-eyebrow">Leadership</div>
-          <h1 class="section-title">Philosophy & Expectations</h1>
-          <p class="section-desc">${D.leader.name} — ${D.leader.title}</p>
-        </div>
-
-        <!-- Motto -->
-        <div style="text-align:center;margin-bottom:2.5rem;padding:2rem;background:var(--bg-card);border:1px solid var(--border-accent);border-radius:var(--radius-lg);">
-          <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Motto</div>
-          <div style="font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,var(--text-primary),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">${D.motto}</div>
-          <div style="display:flex;justify-content:center;gap:2rem;margin-top:1rem;">
-            <div style="text-align:center;">
-              <div style="font-size:0.85rem;font-weight:600;color:var(--gold);">Work Smart</div>
-              <div style="font-size:0.75rem;color:var(--text-muted);max-width:200px;">Apply sound judgment, disciplined planning, and efficient processes.</div>
-            </div>
-            <div style="text-align:center;">
-              <div style="font-size:0.85rem;font-weight:600;color:var(--gold);">Move Fast</div>
-              <div style="font-size:0.75rem;color:var(--text-muted);max-width:200px;">Operate with urgency and adaptability. Act decisively.</div>
-            </div>
-            <div style="text-align:center;">
-              <div style="font-size:0.85rem;font-weight:600;color:var(--gold);">Be Nice</div>
-              <div style="font-size:0.75rem;color:var(--text-muted);max-width:200px;">Treat everyone with dignity while enforcing high standards.</div>
-            </div>
+          <div class="section-eyebrow">Leadership Philosophy</div>
+          <h1 class="section-title">How I Lead and What I Expect</h1>
+          <div class="leader-heading">
+            <div class="leader-heading-name">${D.leader.name}</div>
+            <div class="leader-heading-role">Deputy Commander for Clinical Services</div>
+            <div class="leader-heading-role">MSCoE Command Surgeon</div>
           </div>
         </div>
 
-        <!-- DCCS Intent -->
-        <div style="margin:2.5rem 0;padding:1.5rem;background:rgba(200,168,78,0.06);border:1px solid rgba(200,168,78,0.15);border-radius:var(--radius-lg);">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;">
-            <div style="font-size:1.2rem;font-weight:700;color:var(--gold);">DCCS Intent</div>
-          </div>
-          <div style="margin-bottom:1rem;">
-            <div style="font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Purpose</div>
-            <div style="font-size:0.9rem;color:var(--text-secondary);line-height:1.6;">${L.intent.purpose}</div>
-          </div>
-          <div style="margin-bottom:1rem;">
-            <div style="font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Key Tasks</div>
-            <ul style="margin:0;padding-left:1rem;color:var(--text-secondary);font-size:0.9rem;line-height:1.6;">
-              ${L.intent.keyTasks.map(t => `<li>${t}</li>`).join('')}
-            </ul>
-          </div>
-          <div>
-            <div style="font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">End State</div>
-            <div style="font-size:0.9rem;font-weight:600;color:var(--text-primary);line-height:1.6;">${L.intent.endState}</div>
+        <div class="motto-card">
+          <div class="section-label">Motto</div>
+          <div class="motto-text">${D.motto}</div>
+          <div class="motto-parts">
+            <div><strong>Work Smart</strong><span>Apply sound judgment, disciplined planning, and efficient processes.</span></div>
+            <div><strong>Move Fast</strong><span>Operate with urgency and adaptability. Act decisively.</span></div>
+            <div><strong>Be Nice</strong><span>Treat everyone with dignity while enforcing high standards.</span></div>
           </div>
         </div>
 
-        <!-- Beliefs -->
-        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;">Leadership Beliefs</div>
-        <div class="leadership-grid">
-          ${L.philosophy.beliefs.map((b, i) => `
-            <div class="belief-card">
-              <div class="belief-title">${i+1}. ${b.title}</div>
-              <div class="belief-text">${b.text}</div>
+        <section class="content-section intent-section" id="intent">
+          <div class="section-label">DCCS Intent</div>
+          <h2 class="content-heading">Right care, right place, right time.</h2>
+          <div class="content-stack">
+            <div>
+              <div class="mini-label">Purpose</div>
+              <p>${L.intent.purpose}</p>
             </div>
-          `).join('')}
-        </div>
+            <div>
+              <div class="mini-label">Key Tasks</div>
+              <ul class="intent-list">
+                ${L.intent.keyTasks.map(t => `<li>${t}</li>`).join('')}
+              </ul>
+            </div>
+            <div>
+              <div class="mini-label gold">End State</div>
+              <p class="end-state-text">${L.intent.endState}</p>
+            </div>
+          </div>
+        </section>
 
-        <!-- Expectations -->
-        <div style="margin:2rem 0;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;">What I Expect From My Leaders</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            ${L.philosophy.expectations.map(e => `
-              <div style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius);font-size:0.85rem;color:var(--text-secondary);">✦ ${e}</div>
+        <section class="content-section" id="beliefs">
+          <div class="section-label">Leadership Beliefs</div>
+          <h2 class="content-heading">The standards behind the work.</h2>
+          <div class="leadership-grid">
+            ${L.philosophy.beliefs.map((b, i) => `
+              <div class="belief-card">
+                <div class="belief-title">${i + 1}. ${b.title}</div>
+                <div class="belief-text">${b.text}</div>
+              </div>
             `).join('')}
           </div>
-        </div>
+        </section>
 
-        <!-- Communication & Battle Rhythm -->
-        <div style="margin:2.5rem 0;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.5rem;">
-            <div style="font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;">🚪 Open Door Policy</div>
-            <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">${L.communication.openDoor}</div>
+        <section class="content-section" id="expectations">
+          <div class="section-label">Expectations</div>
+          <h2 class="content-heading">What I expect from my leaders.</h2>
+          <div class="expectations-grid">
+            ${L.philosophy.expectations.map((e, i) => `
+              <div class="expectation-item">
+                <div class="expectation-number">${i + 1}</div>
+                <div class="expectation-text">${e}</div>
+              </div>
+            `).join('')}
           </div>
-          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.5rem;">
-            <div style="font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;">🗓️ Meeting Battle Rhythm</div>
-            <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">${L.communication.battleRhythm}</div>
-          </div>
-        </div>
+        </section>
 
-        <!-- Evaluations -->
-        <div class="eval-section">
-          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;">Evaluations — Rating Focus</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-            <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.5rem;">
+        <section class="content-section" id="communication">
+          <div class="section-label">Communication</div>
+          <h2 class="content-heading">Solve at the lowest level. Escalate with options.</h2>
+          <div class="comm-grid">
+            <div class="info-card">
+              <div class="info-card-title">Open Door Policy</div>
+              <p>${L.communication.openDoor}</p>
+            </div>
+            <div class="info-card">
+              <div class="info-card-title">Meeting Battle Rhythm</div>
+              <p>${L.communication.battleRhythm}</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section" id="evaluations">
+          <div class="section-label">Evaluations</div>
+          <h2 class="content-heading">Rating guidance before counseling.</h2>
+          <p class="content-intro">Evaluations are part of leader development. Know the ground rules, understand where input comes from, and use the HQ/MQ criteria to calibrate your own performance.</p>
+          <div class="eval-guidance-grid">
+            <div class="eval-guidance-card">
+              <div class="eval-title" style="color:var(--gold);">Rating Ground Rules</div>
+              <div class="eval-rule-list">
+                ${L.evaluations.groundRules.map(rule => `
+                  <div class="eval-rule ${rule.title.includes('Top-block') ? 'critical' : ''}">
+                    <div class="eval-rule-title">${rule.title}</div>
+                    <div class="eval-rule-text">${rule.text}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+            <div class="eval-guidance-card">
+              <div class="eval-title" style="color:var(--blue);">Where Ratings Come From</div>
+              <div class="eval-rule-list">
+                ${L.evaluations.ratingFocusAreas.map((source, i) => `
+                  <div class="eval-rule">
+                    <div class="eval-rule-title">Source ${i + 1}</div>
+                    <div class="eval-rule-text">${source}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+          <div class="eval-rating-grid">
+            <div class="rating-card">
               <div class="eval-title" style="color:var(--blue);">Highly Qualified</div>
               <ul class="eval-list">
                 ${L.evaluations.highlyQualified.map(e => `<li>${e}</li>`).join('')}
               </ul>
             </div>
-            <div style="background:var(--bg-card);border:1px solid rgba(200,168,78,0.2);border-radius:var(--radius-lg);padding:1.5rem;">
+            <div class="rating-card highlighted">
               <div class="eval-title" style="color:var(--gold);">Most Qualified — <em>Initiative (lots of it!!)</em></div>
               <ul class="eval-list">
                 ${L.evaluations.mostQualified.map(e => `<li>${e}</li>`).join('')}
               </ul>
             </div>
           </div>
-        </div>
+          <div class="eval-final-thought">
+            <div class="eval-final-label">Final Thought</div>
+            <div class="eval-final-text">${L.evaluations.finalThought}</div>
+          </div>
+        </section>
 
-        <!-- Org Chart -->
-        <div style="margin-top:2.5rem;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;">GLWCH Leadership</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+        <section class="content-section" id="team">
+          <div class="section-label">GLWCH Leadership</div>
+          <h2 class="content-heading">Command and deputy leadership.</h2>
+          <div class="team-grid">
             ${Object.entries(L.orgChart).map(([role, name]) => `
-              <div style="background:var(--bg-card);border:1px solid ${role==='dccs'?'var(--border-accent)':'var(--border-subtle)'};border-radius:var(--radius);padding:1rem;text-align:center;">
-                <div style="font-size:0.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:${role==='dccs'?'var(--gold)':'var(--text-muted)'};margin-bottom:4px;">${role.toUpperCase()}</div>
-                <div style="font-size:0.9rem;font-weight:600;">${name}</div>
+              <div class="team-card ${role === 'dccs' ? 'featured' : ''}">
+                <div class="team-role">${role.toUpperCase()}</div>
+                <div class="team-name">${name}</div>
               </div>
             `).join('')}
           </div>
-        </div>
+        </section>
       </div>`;
   }
 };

@@ -85,9 +85,10 @@ const FRAMEWORK = {
     intent: {
       purpose: "Continuously synchronize medical efforts across the GLWCH and MSCoE footprint to deliver the right care, at the right place, at the right time in order to enable the MSCoE training mission.",
       keyTasks: [
-        "Optimize Primary Care & Specialty Access to meet DHA metrics.",
-        "Execute the Trainee Care Model (BAS → CTMC → Hospital) to protect the ER.",
-        "Leverage data and AI tools to drive clinical efficiency and decision making."
+        "Improve the quality, access, and volume of care across primary care, emergency medicine, mental and behavioral health, surgical services, and all DCCS service lines through DHA metrics, standards-driven execution, and metric-driven improvement.",
+        "Train the care ladder: Medic → Nurse → Advanced Practice Provider (Nurse Practitioner and Physician Assistant) → Physician, ensuring every member of the team works at the highest level of their scope of practice.",
+        "Leverage data and AI tools to drive clinical efficiency and decision making.",
+        "Be brilliant at the basics: use innovation and initiative to improve core work, eliminate low-value tasks, streamline processes, and stop doing work that does not serve the mission."
       ],
       endState: "GLWCH is a highly reliable medical organization that exceeds DHA standards, staffed by empowered leaders who take absolute ownership of their mission, their metrics, and their people."
     },
@@ -96,8 +97,22 @@ const FRAMEWORK = {
       battleRhythm: "Tuesday 0900 DCCS Sync: This meeting is specifically for Chiefs, AOs, and NCOICs. While I will pass down top-level information, its primary purpose is a critical touchpoint to understand the roadblocks your clinics are facing. We will use this time to talk across clinic lines, share great ideas, and solve systemic problems collectively in the room."
     },
     evaluations: {
+      groundRules: [
+        { title: "Most Qualified is capped", text: "The Army caps Most Qualified at 49% for officers and 24% for enlisted NCOs, so not all strong performers will receive that mark." },
+        { title: "No stair-stepping", text: "I will give the highest rating to the best Officer, NCO, or civilian leader, regardless of where you fall in relation to your promotion board." },
+        { title: "Silence means you are on track", text: "Silence from me means you are at least performing at a Highly Qualified/Proficient level." },
+        { title: "Top-block transition rule", text: "I do NOT give Most Qualified/top-block ratings to Soldiers who are leaving the Army." }
+      ],
+      ratingFocusAreas: [
+        "My direct observations (clinical, operational, leadership)",
+        "Rater input, if I am your Senior Rater",
+        "Senior enlisted leader perspectives",
+        "Feedback from peers, subordinates, and patients, both formal and informal",
+        "Contributions to hospital priorities: readiness, quality, safety, access, modernization, and organizational improvement"
+      ],
       highlyQualified: ["Delivers consistent, high-quality performance within mission and intent", "Communicates clearly with patients, peers, and leadership", "Works well with peers and develops subordinates", "Meets professional standards (PT, licensure, continuing education)", "Solves problems within their scope and coordinates effectively", "Synchronizes efforts across departments and units", "Enhances patient safety, access to care, and readiness"],
-      mostQualified: ["Fully ready to operate at the next echelon now", "Anticipates and solves higher-level problems with executable solutions", "Drives innovation (integrates new technology and improves workflow)", "Coaches and inspires others, building high-performance teams", "Exceeds professional standards (AFT, clinical certifications, leadership education)", "Executes multiple high-visibility missions simultaneously", "Understands and aligns to the operational and strategic picture", "Actively develops military and civilian medical leaders", "Expands scope of practice of self and others to the fullest extent allowed"]
+      mostQualified: ["Fully ready to operate at the next echelon now", "Anticipates and solves higher-level problems with executable solutions", "Drives innovation (integrates new technology and improves workflow)", "Coaches and inspires others, building high-performance teams", "Exceeds professional standards (AFT, clinical certifications, leadership education)", "Executes multiple high-visibility missions simultaneously", "Understands and aligns to the operational and strategic picture, connecting GLWCH to DHA and DA readiness", "Actively develops military and civilian medical leaders", "Expands scope of practice of self and others to the fullest extent allowed"],
+      finalThought: "At GLWCH, we accomplish the mission, care for our people, and leave the organization better than we found it. Not everyone will receive Most Qualified, but everyone can - and must - pursue excellence. Ask yourself daily: What have I done to improve patient care, readiness, and this organization? Then act on it."
     },
     orgChart: {
       commander: "COL Angela Diebal-Lee",
