@@ -251,6 +251,27 @@ const App = {
           </div>
         </div>
 
+        <!-- DCCS Intent -->
+        <div style="margin:2.5rem 0;padding:1.5rem;background:rgba(200,168,78,0.06);border:1px solid rgba(200,168,78,0.15);border-radius:var(--radius-lg);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;">
+            <div style="font-size:1.2rem;font-weight:700;color:var(--gold);">DCCS Intent</div>
+          </div>
+          <div style="margin-bottom:1rem;">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Purpose</div>
+            <div style="font-size:0.9rem;color:var(--text-secondary);line-height:1.6;">${L.intent.purpose}</div>
+          </div>
+          <div style="margin-bottom:1rem;">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Key Tasks</div>
+            <ul style="margin:0;padding-left:1rem;color:var(--text-secondary);font-size:0.9rem;line-height:1.6;">
+              ${L.intent.keyTasks.map(t => `<li>${t}</li>`).join('')}
+            </ul>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">End State</div>
+            <div style="font-size:0.9rem;font-weight:600;color:var(--text-primary);line-height:1.6;">${L.intent.endState}</div>
+          </div>
+        </div>
+
         <!-- Beliefs -->
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;">Leadership Beliefs</div>
         <div class="leadership-grid">
@@ -269,6 +290,18 @@ const App = {
             ${L.philosophy.expectations.map(e => `
               <div style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius);font-size:0.85rem;color:var(--text-secondary);">✦ ${e}</div>
             `).join('')}
+          </div>
+        </div>
+
+        <!-- Communication & Battle Rhythm -->
+        <div style="margin:2.5rem 0;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.5rem;">
+            <div style="font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;">🚪 Open Door Policy</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">${L.communication.openDoor}</div>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.5rem;">
+            <div style="font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:12px;">🗓️ Meeting Battle Rhythm</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">${L.communication.battleRhythm}</div>
           </div>
         </div>
 

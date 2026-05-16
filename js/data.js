@@ -81,6 +81,19 @@ const FRAMEWORK = {
       ],
       expectations: ["Know your people", "Don't make excuses", "Drive your metrics", "Build trust up and down the chain", "Be the leader you would want to work for"]
     },
+    intent: {
+      purpose: "Continuously synchronize medical efforts across the GLWCH and MSCoE footprint to deliver the right care, at the right place, at the right time in order to enable the MSCoE training mission.",
+      keyTasks: [
+        "Optimize Primary Care & Specialty Access to meet DHA metrics.",
+        "Execute the Trainee Care Model (BAS → CTMC → Hospital) to protect the ER.",
+        "Leverage data and AI tools to drive clinical efficiency and decision making."
+      ],
+      endState: "GLWCH is a highly reliable medical organization that exceeds DHA standards, staffed by empowered leaders who take absolute ownership of their mission, their metrics, and their people."
+    },
+    communication: {
+      openDoor: "My door is always open, but I expect you to attempt to solve problems at your level first. Go across deputy lanes, talk to your peers, and exhaust your resources. If you must bring a problem to me, bring viable solutions with it. If you force me to solve your problem for you, you probably won't like the answer because it won't be yours. I need your buy-in and your critical thinking.",
+      battleRhythm: "Tuesday 0900 DCCS Sync: This meeting is specifically for Chiefs, AOs, and NCOICs. While I will pass down top-level information, its primary purpose is a critical touchpoint to understand the roadblocks your clinics are facing. We will use this time to talk across clinic lines, share great ideas, and solve systemic problems collectively in the room."
+    },
     evaluations: {
       highlyQualified: ["Delivers consistent, high-quality performance within mission and intent", "Communicates clearly with patients, peers, and leadership", "Works well with peers and develops subordinates", "Meets professional standards (PT, licensure, continuing education)", "Solves problems within their scope and coordinates effectively", "Synchronizes efforts across departments and units", "Enhances patient safety, access to care, and readiness"],
       mostQualified: ["Fully ready to operate at the next echelon now", "Anticipates and solves higher-level problems with executable solutions", "Drives innovation (integrates new technology and improves workflow)", "Coaches and inspires others, building high-performance teams", "Exceeds professional standards (AFT, clinical certifications, leadership education)", "Executes multiple high-visibility missions simultaneously", "Understands and aligns to the operational and strategic picture", "Actively develops military and civilian medical leaders", "Expands scope of practice of self and others to the fullest extent allowed"]
