@@ -73,13 +73,14 @@ const FRAMEWORK = {
     philosophy: {
       beliefs: [
         { title: "Leaders remove friction", text: "If a process is broken or stupid, fix it. The DCCS seat is about clearing obstacles so people can do meaningful work." },
+        { title: "Clarity out of Chaos", text: "In the absence of explicit higher-level guidance, it is our job to build the plan. My role is to provide you with clear intent, set clear goalposts, and facilitate open communication. We will cut away the crap: if a task doesn't serve our core mission or my explicit operational plan, we aren't doing it." },
+        { title: "Be Brilliant at the Basics", text: "Focusing on the basics and driving innovation are not juxtaposed—they go hand-in-hand. We must use innovative solutions and critical thinking to make our fundamental tasks faster, more streamlined, and more efficient." },
+        { title: "Innovate to Empower", text: "Nobody is coming to save us with more money or personnel. We must look across DOTMLPF and leverage AI, Power BI, and dashboards to pick up the slack. Data isn't here to be cold or to micromanage you—it's here to relieve the burden on our staff and help us make smarter decisions." },
         { title: "Authority doesn't matter without responsibility", text: "If you're in charge of something, own it. Own the metrics, own the mission, own your team." },
         { title: "Bad behavior is a leadership problem", text: "No tolerance for toxic leadership, bullying, or passive neglect. Address it head-on — privately and professionally." },
-        { title: "Performance beats personality", text: "Lead well, take care of your people, and deliver results." },
-        { title: "Data is how we win", text: "Lead with dashboards, real metrics, and accountability. Not to punish — but to improve, faster." },
         { title: "Visibility matters", text: "Be out there — in clinics, at huddles, in meetings that matter. Not to micromanage, but to listen and understand." }
       ],
-      expectations: ["Know your people", "Don't make excuses", "Drive your metrics", "Build trust up and down the chain", "Be the leader you would want to work for"]
+      expectations: ["Know your people", "Be brilliant at the basics", "Use technology to work smarter", "Build trust up and down the chain", "Be the leader you would want to work for"]
     },
     intent: {
       purpose: "Continuously synchronize medical efforts across the GLWCH and MSCoE footprint to deliver the right care, at the right place, at the right time in order to enable the MSCoE training mission.",
