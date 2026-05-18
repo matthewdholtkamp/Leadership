@@ -31,6 +31,9 @@ const App = {
   // ===== LANDING PAGE =====
   renderLanding(el) {
     const D = FRAMEWORK;
+    const INITIAL_COUNSELING_URL = 'https://militaryhealth-my.sharepoint-mil.us/personal/matthew_d_holtkamp_mil_health_mil/_layouts/15/listforms.aspx?cid=ZDcyZGM2OWYtNGZlMC00N2I0LTgyMGEtMjVlZjdkYjVmYjZm&nav=ZDAzMzI1MGUtMWFlYi00NTM1LWFiYTgtYjM3OTg1NmZmNTVm';
+    const QUARTERLY_COUNSELING_URL = 'https://militaryhealth-my.sharepoint-mil.us/personal/matthew_d_holtkamp_mil_health_mil/_layouts/15/listforms.aspx?cid=ZDcyZGM2OWYtNGZlMC00N2I0LTgyMGEtMjVlZjdkYjVmYjZm&nav=MzFjYjRmYmUtZjZjNi00MDlmLWFkYjYtYjA1OGEwMDYxMTMy';
+
     el.innerHTML = `
       <div class="page landing portal-home">
         <div class="landing-header">
@@ -71,8 +74,8 @@ const App = {
                   <h3>Schedule counseling</h3>
                   <p>After you have reviewed the material, email SSG Flor Holloway or Ms. Tina Mackie in Global to schedule initial or quarterly counseling.</p>
                   <div class="form-actions">
-                    <a href="#" target="_blank" class="form-action primary">Initial Counseling Form</a>
-                    <a href="#" target="_blank" class="form-action secondary">Quarterly Counseling Form</a>
+                    <a href="${INITIAL_COUNSELING_URL}" target="_blank" rel="noopener noreferrer" class="form-action primary">Initial Counseling Form</a>
+                    <a href="${QUARTERLY_COUNSELING_URL}" target="_blank" rel="noopener noreferrer" class="form-action secondary">Quarterly Counseling Form</a>
                   </div>
                 </div>
               </div>
